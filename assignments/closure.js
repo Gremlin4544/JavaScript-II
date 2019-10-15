@@ -5,6 +5,14 @@
 // The outer scope can be a parent function, or the top level of the script.
 
 
+  const sport = 'futbol';
+  
+  function returnSport() {
+    return sport;
+}
+console.log(sport);
+
+
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
