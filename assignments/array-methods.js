@@ -59,7 +59,7 @@ const runners = [
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
 // console.log(fullNames);
-runners.forEach(function(runners){
+runners.forEach((runners) =>{
   return fullNames.push(`${runners.first_name} ${runners.last_name}`);
 });
 console.log(fullNames);
@@ -68,15 +68,15 @@ console.log(fullNames);
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
 // console.log(firstNamesAllCaps);
-firstNameAllCaps = runners.map(function(runners){
-  return firstNamesAllCaps.push(`${runners.first_name}`);
+firstNameAllCaps = runners.map((runners) =>{
+  return `${runners.first_name.toUpperCase()}`;
 });
-console.log(firstNameAllCaps.toUpperCase);
+console.log(firstNameAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
-runnersLargeSizeShirt = runners.filter(function(currentValue){
+runnersLargeSizeShirt = runners.filter((currentValue) =>{
   if (currentValue.shirt_size === "L"){
     return currentValue.shirt_size;
   }
@@ -92,13 +92,15 @@ console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = runners.reduce((total, currentValue) =>{
+  console.log(`I am the total ${total}`);
+  console.log(`I am the currentValue ${currentValue.donation}`);
+  return total + currentValue.donation;
+}, 
+0);;
 // console.log(ticketPriceTotal);
 
-runners.reduce(function(accumulator, currentValue){
-  console.log(`I am the accumulator ${accumulator}`);
-  console.log(`I am the currentValue ${currentValue.donation}`);
-}, 0);
+
 console.log(ticketPriceTotal);
 
 
